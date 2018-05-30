@@ -25,13 +25,13 @@ li = []
 sheet = openpyxl.load_workbook('facebookairdrop.xlsx')['Sheet1']
 for i in range(9):
     d = {}
-    x = 565
+    x = 0 #update to row you wish to start iterating from
     d['user'] = sheet.cell(row=i+x, column=2).value
     d['address'] = sheet.cell(row=i+x, column=3).value
     d['tokens'] = sheet.cell(row=i+x, column=12).value
     li.append(d)
 
-#here we gooo!
+#the program!
 print('WE HAVE BEGUN')
 for person in li:
     while not pyautogui.pixelMatchesColor(blueSend[0], blueSend[1], blueSendColor):
@@ -61,4 +61,4 @@ for person in li:
     pyautogui.click(greenSubmit[0], greenSubmit[1])
     sleep(1)
     pyautogui.click(clickWallet[0], clickWallet[1])
-    sleep(40)
+    sleep(30)
