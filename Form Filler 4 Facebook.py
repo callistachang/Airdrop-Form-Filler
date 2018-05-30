@@ -23,7 +23,7 @@ greenSubmitColor = (106, 195, 96)
 #excel data to list
 li = []
 sheet = openpyxl.load_workbook('facebookairdrop.xlsx')['Sheet1']
-for i in range(9):
+for i in range(100):
     d = {}
     x = 0 #update to row you wish to start iterating from
     d['user'] = sheet.cell(row=i+x, column=2).value
