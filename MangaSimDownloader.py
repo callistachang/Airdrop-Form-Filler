@@ -22,7 +22,7 @@ while True:
     else:
         break
 
-#Lists through all the manga on the SEARCH PAGE.
+#Lists through all the manga on the SEARCH PAGE, showing the title and author of each option.
 #Takes your input for 'IS THIS MANGA YOU'RE LOOKING FOR?' and clicks on it.
 for j in range(len(chosenManga)):
     print('Title : ' + chosenManga[j].text)
