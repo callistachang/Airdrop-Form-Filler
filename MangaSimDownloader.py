@@ -95,7 +95,7 @@ while True:
 
 #Prints out how long it took to download all that shit.
 downloadTime = time.time() - initialTime
-print('The download took %s seconds.' % str(downloadTime/60)
+print('The download took %s seconds.' % str(downloadTime/60))
 
 '''
 Extra features to try to implement:
