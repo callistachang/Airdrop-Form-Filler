@@ -40,12 +40,12 @@ for j in range(len(chosenManga)):
 initialTime = time.time()
 website = 0
         
-#Takes your input for 'BEGIN INSTALLING FROM WHICH CHAPTER?' and does it.
+#Takes your input for 'BEGIN INSTALLING FROM WHICH CHAPTER?' and does it. Also, we're making folders!
 chapterNo = int(input("Begin installing from which chapter? (Type a number): "))
 separator()
 scrapedURL = chosenManga[j].get('href')
 url = scrapedURL[:20] + 'chapter/' + scrapedURL[20:] + '/chapter_%s' % chapterNo
-chosenLength = len(url[:-len(str(chapterNo))])                                  #Gets the URL length, without the chapter number.
+chosenLength = len(url[:-len(str(chapterNo))])                                  #Gets the URL length, without the chapter number, which will be useful later.
 newFolderName = 'C:\\Users\\%s\\Desktop\\%s' % (getpass.getuser(), chosenManga[j].text)
 os.makedirs(newFolderName, exist_ok=True)                                       #Creates a main folder for the manga on your desktop.
 
@@ -79,10 +79,10 @@ while True:
         fileName = 'Part %s.jpg' % (i+1)
         imageFile = open(os.path.join(newSubFolderName, fileName), 'wb')
         for chunk in res.iter_content(100000): 
-            imageFile.write(chunk)                                              #Downloads the images using the links, 100000 bytes at a time!
+            imageFile.write(chunk)                                              #Downloads the images, 100000 bytes at a time!
         imageFile.close
     
-    #Go to the next chapter and stops the loop when you're done downloading.
+    #Goes to the next chapter until there aren't anymore, then breaks out of the loop.
     try:
         if website == 'mangasim':
             nextChapter = soupB.select('div[class="panel-btn-changes"] a')[3]
